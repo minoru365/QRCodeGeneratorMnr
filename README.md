@@ -75,26 +75,15 @@ dotnet build -c Release
 - margin: 静寂域（モジュール数、既定: 4）
 - foregroundColor: 前景色 HEX（既定: #000000）
 - backgroundColor: 背景色 HEX（既定: #ffffff）
-- asImage: true で `<img>`、false で `<canvas>` に描画（既定: false）
+- 表示形式: `<img>` 固定（以前の asImage プロパティは廃止）
 
 出力:
 - qrDataUrl: 生成した QR の PNG Data URL（SingleLine.Text）。画像コントロールの Image に `QRCodeGeneratorMnr_1.qrDataUrl` のように設定可能。Power Automate にも渡せます。
 
 ## 既知の注意点
-### `<img>` と `<canvas>` の違い（使い分け）
+### 表示方式について
 
-- `<img>`
-	- ブラウザが画像として扱うため、右クリック保存や Alt テキスト、印刷などに強い。
-	- Data URL を `src` に設定するだけで再描画が不要で、単純表示では軽量。
-	- 見た目のリサイズは CSS で簡単に制御可能。
-- `<canvas>`
-	- ピクセルベースの描画で、フィルター・合成・独自レンダリングなどの加工が柔軟。
-	- 描画や再レンダリングのコードが必要。保存や Alt テキストは標準機能では提供されない。
-	- 印刷やアクセシビリティ対応は追加工夫が必要。
-
-使い分けの目安:
-- ただ表示・保存したいだけ → asImage = true（`<img>`）
-- 描画後に加工/合成したい、独自のレンダリング制御が必要 → asImage = false（`<canvas>`）
+このコントロールは `<img>` での表示に固定しました。単純表示・保存・印刷・代替テキストなど一般的な用途での利便性が高いためです。
 
 - 入力テキストが空の場合はプレースホルダー表示になります。
 - 入力が空のときは `qrDataUrl` は空文字になります。
@@ -174,26 +163,14 @@ Notes:
 - margin: quiet zone in modules (default: 4)
 - foregroundColor: HEX (default: #000000)
 - backgroundColor: HEX (default: #ffffff)
-- asImage: true to render as `<img>`, false for `<canvas>` (default: false)
+- Rendering: always `<img>` (the previous asImage property was removed)
 
 Output:
 - qrDataUrl: PNG Data URL (SingleLine.Text). You can set an image control's Image property to `QRCodeGeneratorMnr_1.qrDataUrl` in Canvas apps, or pass it to Power Automate.
 
 ### Notes
-### `<img>` vs `<canvas>` (when to use which)
-
-- `<img>`
-	- Treated as an image element: easy save (right click), alt text, and printing.
-	- Setting a data URL to `src` needs no custom redraw and is lightweight for simple display.
-	- Visual resizing is straightforward with CSS.
-- `<canvas>`
-	- Pixel-level drawing suitable for filters, composition, and custom rendering.
-	- Requires drawing code. Saving/alt text aren’t provided out of the box.
-	- Printing and accessibility usually need extra care.
-
-Decision guide:
-- If you just want to display or save → asImage = true (`<img>`)
-- If you need post-processing or custom rendering → asImage = false (`<canvas>`)
+### About rendering mode
+This control now always renders as an `<img>` for better simplicity and usability (display, save, print, alt text). The previous asImage option has been removed.
 
 - If the input text is empty, a placeholder is displayed.
 - When the input is empty, `qrDataUrl` becomes an empty string.

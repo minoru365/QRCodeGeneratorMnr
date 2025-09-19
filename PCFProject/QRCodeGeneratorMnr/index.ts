@@ -9,7 +9,6 @@ export class QRCodeGeneratorMnr implements ComponentFramework.StandardControl<II
   private _context!: ComponentFramework.Context<IInputs>;
   private _notifyOutputChanged!: () => void;
   private _img?: HTMLImageElement;
-  private _canvas?: HTMLCanvasElement;
   private _qrDataUrl: string = "";
 
   constructor() {}
@@ -34,8 +33,7 @@ export class QRCodeGeneratorMnr implements ComponentFramework.StandardControl<II
   }
 
   public destroy(): void {
-    if (this._img?.parentElement) this._img.parentElement.removeChild(this._img);
-    if (this._canvas?.parentElement) this._canvas.parentElement.removeChild(this._canvas);
+  if (this._img?.parentElement) this._img.parentElement.removeChild(this._img);
   }
 
   private render(): void {
@@ -45,7 +43,7 @@ export class QRCodeGeneratorMnr implements ComponentFramework.StandardControl<II
     const margin = this._context.parameters.margin?.raw ?? 4;
     const colorDark = this._context.parameters.foregroundColor?.raw || "#000000";
     const colorLight = this._context.parameters.backgroundColor?.raw || "#ffffff";
-    const asImage = !!(this._context.parameters as any).asImage?.raw;
+  // Always render as <img>
 
     while (this._container.firstChild) this._container.removeChild(this._container.firstChild);
 
@@ -68,37 +66,17 @@ export class QRCodeGeneratorMnr implements ComponentFramework.StandardControl<II
       width: size,
     };
 
-    if (asImage) {
-      this._img = document.createElement("img");
-      this._img.alt = "QR Code";
-      this._container.appendChild(this._img);
-      QRCode.toDataURL(text, opts, (err, url) => {
-        if (err) return this.showError(err);
-        if (url) {
-          this._img!.src = url;
-          this._qrDataUrl = url;
-          this._notifyOutputChanged();
-        }
-      });
-    } else {
-      this._canvas = document.createElement("canvas");
-      this._canvas.width = size;
-      this._canvas.height = size;
-      this._container.appendChild(this._canvas);
-      QRCode.toCanvas(this._canvas, text, opts, (err) => {
-        if (err) {
-          this.showError(err);
-          return;
-        }
-        try {
-          const url = this._canvas!.toDataURL("image/png");
-          this._qrDataUrl = url;
-          this._notifyOutputChanged();
-        } catch (e) {
-          this.showError(e);
-        }
-      });
-    }
+    this._img = document.createElement("img");
+    this._img.alt = "QR Code";
+    this._container.appendChild(this._img);
+    QRCode.toDataURL(text, opts, (err, url) => {
+      if (err) return this.showError(err);
+      if (url) {
+        this._img!.src = url;
+        this._qrDataUrl = url;
+        this._notifyOutputChanged();
+      }
+    });
   }
 
   private showError(e: unknown) {
