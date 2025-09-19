@@ -15,21 +15,25 @@ Power Apps でテキストから QR コードを生成して表示する PCF コ
 1. 依存関係のインストール
 
 ```pwsh
+cd .\PCFProject
 npm install
 ```
 
 2. 型を生成（必要に応じて）
 ```pwsh
+cd .\PCFProject
 npm run refreshTypes
 ```
 
 ## ビルドとローカル確認
 - ビルド
 ```pwsh
+cd .\PCFProject
 npm run build
 ```
 - ウォッチ + サンドボックス起動
 ```pwsh
+cd .\PCFProject
 npm start
 ```
 ブラウザで http://localhost:8181 を開くと、コントロールをサンドボックスで確認できます。
@@ -111,20 +115,24 @@ Power Apps PCF control to generate and display QR codes from text. Works in both
 ### Setup
 1. Install dependencies
 ```pwsh
+cd .\PCFProject
 npm install
 ```
 2. Generate types (when you change manifest)
 ```pwsh
+cd .\PCFProject
 npm run refreshTypes
 ```
 
 ### Build and local sandbox
 - Build
 ```pwsh
+cd .\PCFProject
 npm run build
 ```
 - Watch + sandbox
 ```pwsh
+cd .\PCFProject
 npm start
 ```
 Open http://localhost:8181 to test the control in the sandbox.
