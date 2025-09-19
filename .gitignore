@@ -2,6 +2,8 @@ node_modules/
 out/
 obj/
 bin/
+Solutions/
+**/*.zip
 .DS_Store
 *.log
 *.user
