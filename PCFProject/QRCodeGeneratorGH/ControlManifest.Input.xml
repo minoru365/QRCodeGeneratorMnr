@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="QRCode" constructor="QRCodeGeneratorGH" version="1.0.0" display-name-key="QRCodeGeneratorGH" description-key="Generate QR code from text" control-type="standard">
+    <property name="textToEncode" display-name-key="Text" description-key="Text to encode into QR" of-type="SingleLine.Text" usage="bound" required="false" />
+    <property name="errorCorrection" display-name-key="Error Correction" description-key="L, M, Q, H" of-type="SingleLine.Text" usage="input" required="false" />
+    <property name="size" display-name-key="Size" description-key="Canvas size in px" of-type="Whole.None" usage="input" required="false" />
+    <property name="margin" display-name-key="Margin" description-key="Quiet zone in modules" of-type="Whole.None" usage="input" required="false" />
+    <property name="foregroundColor" display-name-key="Foreground Color" description-key="Foreground color in hex" of-type="SingleLine.Text" usage="input" required="false" />
+    <property name="backgroundColor" display-name-key="Background Color" description-key="Background color in hex" of-type="SingleLine.Text" usage="input" required="false" />
+    <property name="asImage" display-name-key="As Image" description-key="Render as img element instead of canvas" of-type="TwoOptions" usage="input" required="false" />
+    <property name="qrDataUrl" display-name-key="QR Data URL" description-key="Base64 PNG data URL of the generated QR" of-type="SingleLine.Text" usage="output" required="false" />
+    <resources>
+      <code path="index.ts" order="1" />
+      <css path="css/qrcode.css" order="1" />
+    </resources>
+  </control>
+  
+</manifest>

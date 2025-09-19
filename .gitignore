@@ -1,0 +1,10 @@
+node_modules/
+out/
+obj/
+bin/
+.DS_Store
+*.log
+*.user
+*.suo
+*.njsproj
+*.vs/

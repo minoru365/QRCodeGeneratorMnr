@@ -1,0 +1,19 @@
+.QRCode\.QRCodeGeneratorGH {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  min-height: 64px;
+}
+
+.QRCode\.QRCodeGeneratorGH .qr-placeholder {
+  color: #666;
+  font-size: 12px;
+  padding: 8px;
+}
+
+.QRCode\.QRCodeGeneratorGH .qr-error {
+  color: #b00020;
+  font-size: 12px;
+  padding: 4px 8px;
+}

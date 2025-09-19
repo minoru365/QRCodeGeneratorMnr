@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": ["dom", "es5", "scripthost", "es2015.promise"],
+    "sourceMap": true,
+    "declaration": false,
+    "removeComments": false,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "noEmitOnError": true,
+    "jsx": "react-jsx"
+  },
+  "exclude": ["node_modules", "out"],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "node_modules/@types/powerapps-component-framework/index.d.ts"
+  ]
+}

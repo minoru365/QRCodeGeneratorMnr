@@ -1,0 +1,27 @@
+{
+  "name": "pcf-qr-code",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Power Apps PCF control to generate QR codes from text",
+  "scripts": {
+    "build": "pcf-scripts build",
+    "start": "pcf-scripts start watch",
+    "refreshTypes": "pcf-scripts refreshTypes",
+    "clean": "pcf-scripts clean"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.50",
+    "@types/powerapps-component-framework": "^1.3.18",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-import": "^2.29.1",
+    "pcf-scripts": "^1.12.8",
+    "pcf-start": "^1.7.5",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "pcf-qr-code": "file:",
+    "qrcode": "^1.5.3"
+  }
+}
