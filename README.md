@@ -55,18 +55,15 @@ pac solution add-reference --path .\PCFProject --solution-directory .\Solutions
 cd Solutions
 dotnet build -c Release
 ```
+注記:
+- pac solution init は --solution-name ではなく、出力先 `--outputDirectory` を指定します（ソリューション名は `Solutions/src/Other/Solution.xml` に記述）。
+- Publisher は `--publisher-name`（表示名）と `--publisher-prefix`（接頭辞）の2つを指定します。
 生成物（Managed）: `Solutions/bin/Release/Solutions.zip`
 
 インポート手順:
 1) 管理センターまたは Maker Portal で環境を開く
 2) ソリューション > インポート
 3) 上記 `Solutions.zip`（Managed）を指定
-
- 
-
-注記:
-- pac solution init は --solution-name ではなく、出力先 `--outputDirectory` を指定します（ソリューション名は `Solutions/src/Other/Solution.xml` に記述）。
-- Publisher は `--publisher-name`（表示名）と `--publisher-prefix`（接頭辞）の2つを指定します。
 
 ## コントロール プロパティ
 - textToEncode: エンコードする文字列（バインド可）
@@ -75,16 +72,11 @@ dotnet build -c Release
 - margin: 静寂域（モジュール数、既定: 4）
 - foregroundColor: 前景色 HEX（既定: #000000）
 - backgroundColor: 背景色 HEX（既定: #ffffff）
-- 表示形式: `<img>` 固定（以前の asImage プロパティは廃止）
 
 出力:
 - qrDataUrl: 生成した QR の PNG Data URL（SingleLine.Text）。画像コントロールの Image に `QRCodeGeneratorMnr_1.qrDataUrl` のように設定可能。Power Automate にも渡せます。
 
 ## 既知の注意点
-### 表示方式について
-
-このコントロールは `<img>` での表示に固定しました。単純表示・保存・印刷・代替テキストなど一般的な用途での利便性が高いためです。
-
 - 入力テキストが空の場合はプレースホルダー表示になります。
 - 入力が空のときは `qrDataUrl` は空文字になります。
 
@@ -143,18 +135,15 @@ pac solution add-reference --path .\PCFProject --solution-directory .\Solutions
 cd Solutions
 dotnet build -c Release
 ```
+Notes:
+- pac solution init uses `--outputDirectory` rather than `--solution-name`; the actual solution name is in `Solutions/src/Other/Solution.xml`.
+- Publisher has two parts: `--publisher-name` (display name) and `--publisher-prefix` (customization prefix).
 Output (Managed): `Solutions/bin/Release/Solutions.zip`
 
 Import steps:
 1) Open your environment in Admin Center or Maker Portal
 2) Solutions > Import
 3) Select the Managed `Solutions.zip` above
-
- 
-
-Notes:
-- pac solution init uses `--outputDirectory` rather than `--solution-name`; the actual solution name is in `Solutions/src/Other/Solution.xml`.
-- Publisher has two parts: `--publisher-name` (display name) and `--publisher-prefix` (customization prefix).
 
 ### Control properties
 - textToEncode: string to encode (bindable)
@@ -163,15 +152,11 @@ Notes:
 - margin: quiet zone in modules (default: 4)
 - foregroundColor: HEX (default: #000000)
 - backgroundColor: HEX (default: #ffffff)
-- Rendering: always `<img>` (the previous asImage property was removed)
 
 Output:
 - qrDataUrl: PNG Data URL (SingleLine.Text). You can set an image control's Image property to `QRCodeGeneratorMnr_1.qrDataUrl` in Canvas apps, or pass it to Power Automate.
 
 ### Notes
-### About rendering mode
-This control now always renders as an `<img>` for better simplicity and usability (display, save, print, alt text). The previous asImage option has been removed.
-
 - If the input text is empty, a placeholder is displayed.
 - When the input is empty, `qrDataUrl` becomes an empty string.
 
