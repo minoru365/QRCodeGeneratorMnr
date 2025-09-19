@@ -55,9 +55,10 @@ pac solution add-reference --path .\PCFProject --solution-directory .\Solutions
 cd Solutions
 dotnet build -c Release
 ```
-注記:
-- pac solution init は --solution-name ではなく、出力先 `--outputDirectory` を指定します（ソリューション名は `Solutions/src/Other/Solution.xml` に記述）。
-- Publisher は `--publisher-name`（表示名）と `--publisher-prefix`（接頭辞）の2つを指定します。
+> [!NOTE]
+> - pac solution init は --solution-name ではなく、出力先 `--outputDirectory` を指定します（ソリューション名は `Solutions/src/Other/Solution.xml` に記述）。
+> - Publisher は `--publisher-name`（表示名）と `--publisher-prefix`（接頭辞）の2つを指定します。
+
 生成物（Managed）: `Solutions/bin/Release/Solutions.zip`
 
 インポート手順:
@@ -135,9 +136,10 @@ pac solution add-reference --path .\PCFProject --solution-directory .\Solutions
 cd Solutions
 dotnet build -c Release
 ```
-Notes:
-- pac solution init uses `--outputDirectory` rather than `--solution-name`; the actual solution name is in `Solutions/src/Other/Solution.xml`.
-- Publisher has two parts: `--publisher-name` (display name) and `--publisher-prefix` (customization prefix).
+> [!NOTE]
+> - pac solution init uses `--outputDirectory` rather than `--solution-name`; the actual solution name is in `Solutions/src/Other/Solution.xml`.
+> - Publisher has two parts: `--publisher-name` (display name) and `--publisher-prefix` (customization prefix).
+
 Output (Managed): `Solutions/bin/Release/Solutions.zip`
 
 Import steps:
