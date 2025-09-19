@@ -52,6 +52,26 @@ dotnet build -c Release
 2) ソリューション > インポート
 3) 上記 `Solutions.zip`（Managed）を指定
 
+### 別環境でソリューションを一から作る場合（参考）
+```pwsh
+# 1) ソリューションのひな形を作成（発行者名/Prefixを指定）
+pac solution init --publisher-name "minoru" --publisher-prefix "mnr" --outputDirectory .\Solutions
+
+# 2) PCF プロジェクト（.pcfproj）をソリューションへ参照追加
+pac solution add-reference --path .\PCFProject --solution-directory .\Solutions
+
+# 3) Managed 出力にしたい場合は Solutions.cdsproj を編集
+#    <SolutionPackageType>Managed</SolutionPackageType>
+
+# 4) Release ビルドで zip 生成
+cd Solutions
+dotnet build -c Release
+```
+
+注記:
+- pac solution init は --solution-name ではなく、出力先 `--outputDirectory` を指定します（ソリューション名は `Solutions/src/Other/Solution.xml` に記述）。
+- Publisher は `--publisher-name`（表示名）と `--publisher-prefix`（接頭辞）の2つを指定します。
+
 ## コントロール プロパティ
 - textToEncode: エンコードする文字列（バインド可）
 - errorCorrection: エラー訂正レベル L/M/Q/H（既定: M）
@@ -118,6 +138,26 @@ Import steps:
 1) Open your environment in Admin Center or Maker Portal
 2) Solutions > Import
 3) Select the Managed `Solutions.zip` above
+
+### Build a fresh solution in another environment (reference)
+```pwsh
+# 1) Initialize a solution skeleton with publisher info
+pac solution init --publisher-name "minoru" --publisher-prefix "mnr" --outputDirectory .\Solutions
+
+# 2) Add your PCF project (.pcfproj) as a reference
+pac solution add-reference --path .\PCFProject --solution-directory .\Solutions
+
+# 3) To output Managed package, edit Solutions.cdsproj
+#    <SolutionPackageType>Managed</SolutionPackageType>
+
+# 4) Build Release zip
+cd Solutions
+dotnet build -c Release
+```
+
+Notes:
+- pac solution init uses `--outputDirectory` rather than `--solution-name`; the actual solution name is in `Solutions/src/Other/Solution.xml`.
+- Publisher has two parts: `--publisher-name` (display name) and `--publisher-prefix` (customization prefix).
 
 ### Control properties
 - textToEncode: string to encode (bindable)
