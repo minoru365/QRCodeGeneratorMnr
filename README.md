@@ -1,6 +1,6 @@
 <!-- Language: 日本語 / English -->
 
-# QRCodeGeneratorGH PCF
+# QRCodeGeneratorMnr PCF
 
 日本語 / Japanese | [English](#english)
 
@@ -88,7 +88,7 @@ dotnet build -c Release
 - asImage: true で <img>、false で <canvas> に描画（既定: false）
 
 出力:
-- qrDataUrl: 生成した QR の PNG Data URL（SingleLine.Text）。画像コントロールの Image に `QRCodeGeneratorGH_1.qrDataUrl` のように設定可能。Power Automate にも渡せます。
+- qrDataUrl: 生成した QR の PNG Data URL（SingleLine.Text）。画像コントロールの Image に `QRCodeGeneratorMnr_1.qrDataUrl` のように設定可能。Power Automate にも渡せます。
 
 ## 既知の注意点
 - 入力テキストが空の場合はプレースホルダー表示になります。
@@ -182,7 +182,7 @@ Notes:
 - asImage: true to render as <img>, false for <canvas> (default: false)
 
 Output:
-- qrDataUrl: PNG Data URL (SingleLine.Text). You can set an image control's Image property to `QRCodeGeneratorGH_1.qrDataUrl` in Canvas apps, or pass it to Power Automate.
+- qrDataUrl: PNG Data URL (SingleLine.Text). You can set an image control's Image property to `QRCodeGeneratorMnr_1.qrDataUrl` in Canvas apps, or pass it to Power Automate.
 
 ### Notes
 - If the input text is empty, a placeholder is displayed.

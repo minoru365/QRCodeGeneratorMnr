@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <manifest>
-  <control namespace="QRCode" constructor="QRCodeGeneratorGH" version="1.0.0" display-name-key="QRCodeGeneratorGH" description-key="Generate QR code from text" control-type="standard">
+  <control namespace="QRCode" constructor="QRCodeGeneratorMnr" version="1.0.0" display-name-key="QRCodeGeneratorMnr" description-key="Generate QR code from text" control-type="standard">
     <property name="textToEncode" display-name-key="Text" description-key="Text to encode into QR" of-type="SingleLine.Text" usage="bound" required="false" />
     <property name="errorCorrection" display-name-key="Error Correction" description-key="L, M, Q, H" of-type="SingleLine.Text" usage="input" required="false" />
     <property name="size" display-name-key="Size" description-key="Canvas size in px" of-type="Whole.None" usage="input" required="false" />
