@@ -24,44 +24,54 @@ npm run refreshTypes
 ```
 
 ## ビルドとローカル確認
+# 実行ディレクトリ: リポジトリのルート
 - ビルド
 ```pwsh
 npm run build
+# 実行ディレクトリ: リポジトリのルート
 ```
 - ウォッチ + サンドボックス起動
 ```pwsh
+# 実行ディレクトリ: リポジトリのルート
 npm start
 ```
 ブラウザで http://localhost:8181 を開くと、コントロールをサンドボックスで確認できます。
+# 実行ディレクトリ: リポジトリのルート
 
 ## Dataverse ソリューション化（本リポジトリに含まれます）
 
-本リポジトリには既にソリューション プロジェクトが含まれています。
 - ソリューション フォルダ: `Solutions`（Publisher: minoru/mnr, Managed）
+# 実行ディレクトリ: リポジトリのルート
+# 1) ソリューションのひな形を作成（発行者名/Prefixを指定）
 - PCF プロジェクト（.pcfproj）: `PCFProject`
 
 Release ビルドで Managed zip を生成済みです。再ビルドする場合は以下。
-```pwsh
 cd Solutions
+# 2) PCF プロジェクト（.pcfproj）をソリューションへ参照追加
 dotnet build -c Release
 ```
 生成物（Managed）: `Solutions/bin/Release/Solutions.zip`
 
-インポート手順:
 1) 管理センターまたは Maker Portal で環境を開く
+# Working directory: repository root
+# 1) Initialize a solution skeleton with publisher info
 2) ソリューション > インポート
 3) 上記 `Solutions.zip`（Managed）を指定
 
-### 別環境でソリューションを一から作る場合（参考）
 ```pwsh
+# 2) Add your PCF project (.pcfproj) as a reference
 # 1) ソリューションのひな形を作成（発行者名/Prefixを指定）
 pac solution init --publisher-name "minoru" --publisher-prefix "mnr" --outputDirectory .\Solutions
 
 # 2) PCF プロジェクト（.pcfproj）をソリューションへ参照追加
+# 実行ディレクトリ: リポジトリのルート → Solutions へ移動
+cd Solutions
 pac solution add-reference --path .\PCFProject --solution-directory .\Solutions
 
 # 3) Managed 出力にしたい場合は Solutions.cdsproj を編集
 #    <SolutionPackageType>Managed</SolutionPackageType>
+# Working directory: repository root → go to Solutions
+cd Solutions
 
 # 4) Release ビルドで zip 生成
 cd Solutions
